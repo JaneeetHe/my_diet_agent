@@ -15,6 +15,7 @@ except ImportError:  # mcp 1.x
 from diet_agent import db as store
 from diet_agent.foods import FoodDB, load_config
 from diet_agent.parser import Item, ParseError, parse
+from diet_agent.chart import write_report
 from diet_agent.report import day_report, items_table, status, total, week_report
 
 INSTRUCTIONS = """你是我的减脂饮食管家。所有数字都由工具计算，不要自己心算或凭记忆给数值。
@@ -23,6 +24,7 @@ INSTRUCTIONS = """你是我的减脂饮食管家。所有数字都由工具计�
 - 每次记录后，根据工具返回的状态，用一两句话告诉我还剩多少空间、蛋白质够不够，给下一餐的简短建议。
 - 我说"收官"时调用 day_summary，简短总结今天（先肯定做得好的，不制造焦虑），并原样给出存档行。
 - 我说要新增常吃的食物时，用 add_food 存进食物库。
+- 我想看趋势、图表时，用 trend_chart（一周 days=7，一个月 days=30），再用一两句话点出趋势。
 """
 
 mcp = Server("减脂饮食管家", instructions=INSTRUCTIONS)
@@ -84,6 +86,21 @@ def weekly_report(end_date: str = "") -> str:
     start = (Date.fromisoformat(end).toordinal() - 6)
     start = Date.fromordinal(start).isoformat()
     return week_report(end, store.range_totals(conn, start, end), load_config())
+
+
+@mcp.tool()
+def trend_chart(days: int = 7, end_date: str = "", open_browser: bool = True) -> str:
+    """生成热量 / 蛋白质 / 三大营养素来源的趋势图（HTML），默认在浏览器打开。
+    days：看最近几天，一周填 7，一个月填 30。end_date：截止日期 YYYY-MM-DD，默认今天。"""
+    end = _day(end_date)
+    days = max(1, min(int(days), 366))
+    start = Date.fromordinal(Date.fromisoformat(end).toordinal() - days + 1).isoformat()
+    lookback = Date.fromordinal(Date.fromisoformat(start).toordinal() - 6).isoformat()
+    path = write_report(store.range_totals(conn, lookback, end), end, days, load_config())
+    if open_browser:
+        import webbrowser
+        webbrowser.open(path.resolve().as_uri())
+    return f"趋势图已生成：{path}" + ("（已在浏览器打开）" if open_browser else "")
 
 
 @mcp.tool()

@@ -6,8 +6,13 @@
   python cli.py week                          最近 7 天
   python cli.py del 12                        删除 #12
   python cli.py foods                         食物库
+  python cli.py chart 30                      最近 30 天趋势图（默认 7）
 """
 import sys
+
+# Windows 终端默认 GBK，统一用 UTF-8 输出中文和符号
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 import server
 
@@ -27,6 +32,8 @@ def main(argv: list[str]) -> None:
         print(server.weekly_report(args[0] if args else ""))
     elif cmd == "del":
         print(server.delete_entry(int(args[0])))
+    elif cmd == "chart":
+        print(server.trend_chart(int(args[0]) if args else 7))
     elif cmd == "foods":
         print(server.list_foods())
     else:
