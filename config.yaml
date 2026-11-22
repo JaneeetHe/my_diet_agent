@@ -1,0 +1,6 @@
+# 每日目标
+kcal_min: 1300        # 热量下限
+kcal_max: 1400        # 热量上限
+recharge_max: 1600    # 充能日上限（超过这个才算"超标"）
+protein_min: 75       # 蛋白质底线 (g)
+protein_goal: 100     # 蛋白质理想值 (g)

@@ -1,0 +1,219 @@
+# 个人食物库
+# 每个条目：代号 → 名称、份量、营养（按 1 份计）
+#   per:     1 份等于多少个单位，用于"8只虾"这类写法（默认 1）
+#   aliases: 别名，说别名也能识别
+# 修改后无需重启，下次记录时自动重新读取。
+
+# ───────── 早餐 ─────────
+早标A:
+  name: 经典蛋白蛋黄咖啡
+  portion: 2蛋白 + 1蛋黄 + 美式咖啡
+  kcal: 110
+  protein: 12.0
+  carb: 2.0
+  fat: 5.5
+早标B:
+  name: 双全蛋美式咖啡
+  portion: 2个全蛋 + 美式咖啡
+  kcal: 145
+  protein: 12.6
+  carb: 1.0
+  fat: 10.0
+
+# ───────── 主食 ─────────
+饼:
+  name: 米饼（按块）
+  portion: 1块（饼4 = 4块）
+  kcal: 60
+  protein: 0.75
+  carb: 13.0
+  fat: 0.25
+  aliases: [米饼]
+饼包:
+  name: 米饼（整包）
+  portion: 1整包（包装标注 150 kcal）
+  kcal: 150
+  protein: 2.5
+  carb: 32.0
+  fat: 0.5
+
+# ───────── 水果 ─────────
+果-C:
+  name: Cosmic Crisp 苹果
+  portion: 1个中等（约180g）
+  kcal: 95
+  protein: 0.5
+  carb: 25.0
+  fat: 0.3
+果-H:
+  name: Honey Crisp 苹果
+  portion: 1个大号（约220g）
+  kcal: 115
+  protein: 0.5
+  carb: 30.0
+  fat: 0.5
+果-K:
+  name: 奇异果
+  portion: 1个中等（约80g）
+  kcal: 50
+  protein: 0.8
+  carb: 12.0
+  fat: 0.4
+  aliases: [奇异果, kiwi, 猕猴桃]
+果-莓:
+  name: 冷冻蓝莓
+  portion: 1把（约60g）
+  kcal: 35
+  protein: 0.4
+  carb: 8.5
+  fat: 0.2
+  aliases: [蓝莓]
+
+# ───────── 调料 / 饮品 ─────────
+油1:
+  name: 橄榄油
+  portion: 1勺（约10g）
+  kcal: 90
+  protein: 0.0
+  carb: 0.0
+  fat: 10.0
+  aliases: [橄榄油, 油]
+酱-辣:
+  name: 常用辣椒酱
+  portion: 1勺
+  kcal: 35
+  protein: 0.5
+  carb: 5.0
+  fat: 1.5
+  aliases: [辣酱, 辣椒酱]
+酱-蔓:
+  name: 自制蔓越莓果酱
+  portion: 1勺（约20g）
+  kcal: 50
+  protein: 0.2
+  carb: 12.0
+  fat: 0.0
+  aliases: [蔓越莓果酱, 果酱]
+酱-味噌:
+  name: 味噌酱
+  portion: 1勺
+  kcal: 40
+  protein: 2.0
+  carb: 5.0
+  fat: 1.0
+  aliases: [味噌, miso]
+饮-L:
+  name: LMNT 电解质水
+  portion: 1袋
+  kcal: 10
+  protein: 0.0
+  carb: 0.0
+  fat: 0.0
+  aliases: [lmnt, 电解质水]
+
+# ───────── 蛋白质 ─────────
+肉-鸡胸:
+  name: 空气炸烤鸡胸肉丝
+  portion: 约150g 熟重
+  kcal: 200
+  protein: 42.0
+  carb: 0.0
+  fat: 3.5
+  aliases: [鸡胸, 鸡胸肉]
+肉-三文鱼:
+  name: 去皮烤三文鱼
+  portion: 约150g 熟重
+  kcal: 220
+  protein: 31.0
+  carb: 0.0
+  fat: 10.0
+  aliases: [三文鱼]
+肉-虾:
+  name: 去壳鲜虾仁
+  portion: 8只（约100g）
+  per: 8
+  kcal: 85
+  protein: 18.0
+  carb: 0.0
+  fat: 1.0
+  aliases: [虾, 虾仁]
+肉-手枪腿:
+  name: 去皮烤手枪腿
+  portion: 约200g 熟肉
+  kcal: 330
+  protein: 42.0
+  carb: 0.0
+  fat: 16.0
+  aliases: [手枪腿]
+肉-鸡翅:
+  name: 带皮全鸡翅
+  portion: 2个（约160g）
+  per: 2
+  kcal: 380
+  protein: 28.0
+  carb: 0.0
+  fat: 29.0
+  aliases: [鸡翅]
+
+# ───────── 单独食材（用于汤的加减） ─────────
+蛋:
+  name: 全蛋
+  portion: 1个
+  kcal: 72
+  protein: 6.3
+  carb: 0.4
+  fat: 5.0
+  aliases: [鸡蛋, 全蛋]
+蛋白:
+  name: 蛋清
+  portion: 1个
+  kcal: 17
+  protein: 3.6
+  carb: 0.2
+  fat: 0.1
+  aliases: [蛋清]
+土豆:
+  name: 土豆
+  portion: 1个中等（约150g）
+  kcal: 115
+  protein: 3.0
+  carb: 26.0
+  fat: 0.1
+西红柿:
+  name: 大西红柿
+  portion: 1个（约200g）
+  kcal: 30
+  protein: 1.5
+  carb: 6.5
+  fat: 0.3
+  aliases: [番茄]
+
+# ───────── 自制组合（整锅 / 整碗） ─────────
+汤1:
+  name: 番茄洋葱土豆鲜虾蛋花汤
+  portion: 整锅
+  kcal: 525
+  protein: 33.0
+  carb: 47.0
+  fat: 21.0
+汤2:
+  name: 青菜软豆腐金针菇蛋花汤
+  portion: 整锅
+  kcal: 340
+  protein: 23.0
+  carb: 8.5
+  fat: 24.0
+碗1:
+  name: 奇亚籽燕麦酸奶碗
+  portion: 整碗（含蔓越莓果酱）
+  kcal: 355
+  protein: 19.3
+  carb: 56.5
+  fat: 6.6
+碗2:
+  name: 蓝莓酸奶碗
+  portion: 整碗
+  kcal: 105
+  protein: 12.4
+  carb: 13.3
+  fat: 0.7

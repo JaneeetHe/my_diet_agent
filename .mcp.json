@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "diet": {
+      "command": "C:\\Users\\asus\\Documents\\MY_PROJECT\\diet-agent\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\Users\\asus\\Documents\\MY_PROJECT\\diet-agent\\server.py"]
+    }
+  }
+}
